@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" th:content="${clientId}">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+<div>
+    <a href="/secret-information">Get secret information</a>
+    <a href="#" id="tokenLink">Sign in at backend with token</a>
+
+    <p>
+        Your backend principal is <span th:text="${principal}"></span>
+    </p>
+    <p id="name">Your browser is not signed in yet</p>
+</div>
+
+
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+<script>
+    function onSignIn(googleUser) {
+        const profile = googleUser.getBasicProfile()
+        console.table(profile);
+
+        const id_token = googleUser.getAuthResponse().id_token;
+        const name = profile.getName(0);
+
+        document.getElementById("name").innerHTML =`Your browser is signed in at google as ${name}`;
+        document.getElementById("tokenLink").href = `http://localhost:8080/auth/${id_token}`;
+    }
+</script>
+</body>
+</html>
