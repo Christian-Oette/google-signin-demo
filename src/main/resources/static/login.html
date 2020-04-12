@@ -72,6 +72,8 @@
         document.getElementById("name").innerHTML = `Your browser is signed in at google as ${name}`;
         document.getElementById("tokenLink").href = `http://localhost:8080/auth/token/${id_token}`;
         document.getElementById("tokenLink").innerHTML = `send token to backend`;
+
+        // TODO send token via POST to backend!
     }
 </script>
 </html>
