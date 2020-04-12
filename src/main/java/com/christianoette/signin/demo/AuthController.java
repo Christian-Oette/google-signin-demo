@@ -48,11 +48,14 @@ public class AuthController {
     }
 
     @GetMapping("/callback")
-    public RedirectView authCallback(@RequestParam String code, HttpServletRequest servletRequest) throws IOException {
+    public RedirectView authCallback(@RequestParam String code,
+                                     HttpServletRequest servletRequest) throws IOException {
         GoogleAuthorizationCodeTokenRequest tokenRequest =
                 googleAuthorizationCodeFlow.newTokenRequest(code);
         tokenRequest.setRedirectUri("http://localhost:8080/auth/callback");
         GoogleTokenResponse tokenResponse = tokenRequest.execute();
+        GoogleIdToken token = tokenResponse.parseIdToken();
+        token.getPayload().getEmail();
 
         // TODO replace session cookie with your your token exchange logic here
         setSessionCookie(servletRequest, tokenResponse);
