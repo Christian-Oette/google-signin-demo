@@ -30,3 +30,8 @@ Watch the tutorial videos to get a better understanding!
 ## Tutorial Part 2 - Redirect without javascript
 
 [![Part 2 Redirect without javascript](https://img.youtube.com/vi/AWcSMjrR7Sk/2.jpg)](https://www.youtube.com/watch?v=AWcSMjrR7Sk)
+
+
+## Tutorial Part 3 - Javascript popup and taken validation
+
+[![Part 3 Javascript Popup ](https://img.youtube.com/vi/6GbucuLFGAk/2.jpg)](https://www.youtube.com/watch?v=6GbucuLFGAk)
